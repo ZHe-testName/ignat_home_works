@@ -4,7 +4,7 @@ import Message from './Message'
 const messageData = {
     avatar: 'https://st4.depositphotos.com/9449108/25247/i/600/depositphotos_252470774-stock-photo-samurai-stands-circled-in-an.jpg',
     name: 'Some Name',
-    message: 'some text some text some text some text some text some text some text some text',
+    message: 'some text',
     time: '22:00',
 }
 

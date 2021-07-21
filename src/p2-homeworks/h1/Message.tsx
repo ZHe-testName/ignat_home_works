@@ -11,8 +11,6 @@ type MessagePropsType = {
 function Message(props: MessagePropsType) {
     const {avatar, name, message, time} = props;
 
-    console.log(classes);
- 
     return (
         <div  className={classes.message}>
             <div className={classes.avatar}>
@@ -20,17 +18,17 @@ function Message(props: MessagePropsType) {
             </div>
 
             <div className={classes.textblock}>
-                <div className="text-field">
-                    <div className="client-name">
+                <div>
+                    <div>
                         {name}
                     </div>
 
-                    <div className="message-text">
+                    <div>
                         {message}
                     </div>
                 </div>
                 
-                <div className="time-field">
+                <div>
                     {time}
                 </div>
             </div>

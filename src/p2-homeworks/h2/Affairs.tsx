@@ -2,6 +2,8 @@ import React from 'react'
 import Affair from './Affair'
 import {AffairType, FilterType} from './HW2'
 
+import classes from './Affairs.module.css'
+
 type AffairsPropsType = { // need to fix any
     data: Array<AffairType>
     setFilter: (filter: FilterType) => void
@@ -24,7 +26,7 @@ function Affairs(props: AffairsPropsType) {
     const setLow = () => {setFilter('low')};
 
     return (
-        <div>
+        <div className={classes.affairs}>
 
             {mappedAffairs}
 

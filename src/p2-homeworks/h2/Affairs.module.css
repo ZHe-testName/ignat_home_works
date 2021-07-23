@@ -1,3 +1,18 @@
-.someClass {
+.affairs{
+    width: fit-content;
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 10px;
+    background-color: cornflowerblue;
+}
 
+.affairField{
+    color: white;
+    text-shadow: 2px 2px 3px #f0b4b4;
+}
+
+.deleteButton{
+    margin-left: 25px;
 }

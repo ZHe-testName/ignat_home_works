@@ -1,7 +1,7 @@
-.someClass {
-
-}
-
 .error {
     border: 1px solid red;
+}
+
+.noerror {
+    border: 1px solid rgb(14, 168, 27);
 }

@@ -14,7 +14,7 @@ function Message(props: MessagePropsType) {
     return (
         <div  className={classes.message}>
             <div className={classes.avatar}>
-                    <img src={avatar} alt="avatar image" />
+                    <img src={avatar} alt="user avatar" />
             </div>
 
             <div className={classes.textblock}>

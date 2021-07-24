@@ -1,3 +1,28 @@
+
+
+.inputField > input[type='text']{
+    border-width: 2px;
+    border-radius: 3px;
+    margin-right: 15px;
+}
+
+.inputField > button{
+    background-color: rgb(18, 131, 139);
+    border-radius: 10px;
+    border: 0px;
+    padding: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.inputField > span:first-of-type{
+    color: rgb(0, 35, 190);
+}
+
+.errorMessage{
+    color: crimson;
+}
+
 .error {
     border: 1px solid red;
 }

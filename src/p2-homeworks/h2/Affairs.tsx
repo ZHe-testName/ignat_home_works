@@ -28,7 +28,9 @@ function Affairs(props: AffairsPropsType) {
     return (
         <div className={classes.affairs}>
 
-            {mappedAffairs}
+            <div>
+                {mappedAffairs}
+            </div>
 
             <button onClick={setAll}>All</button>
             <button onClick={setHigh}>High</button>

@@ -5,25 +5,45 @@
     border-radius: 10px;
     border: 2px solid black;
     padding: 10px;
-    background-color: cornflowerblue;
+    background-color: #323c4e;
 }
 
-.affairField{
-    color: white;
-    text-shadow: 2px 2px 3px #f0b4b4;
-}
+    .deleteButton{
+        width: 35px;
+        border-radius: 5px;
+        background-color: tomato;
+        margin-left: 25px;
+        outline: none;
+        border: 0px;
+        box-shadow: none;
+    }
 
-.deleteButton{
-    width: 35px;
-    border-radius: 5px;
-    background-color: tomato;
-    margin-left: 25px;
-    outline: none;
-    border: 0px;
-    box-shadow: none;
-}
+        .deleteButton:hover{
+            color: white;
+            cursor: pointer;
+            background-color: rgb(255, 121, 103);
+            box-shadow: 0px 0px 10px 1px white;
+        }
 
-.deleteButton:hover{
-    cursor: pointer;
-    background-color: rgb(255, 121, 103);
-}
+    .affairs > button{
+        margin: 10px 10px 0px 10px;
+        border-radius: 5px;
+        border: 1px solid white;
+    }
+
+    .affairs > button:nth-child(3){
+        background-color: rgb(43, 167, 167);
+    }
+
+    .affairs > button:nth-child(4){
+        background-color: yellowgreen;
+    }
+
+    .affairs > button:nth-child(5){
+        background-color: rgb(84, 84, 204);
+    }
+
+    .affairs > button:hover{
+        transform: scale(1.1);
+        cursor: pointer;
+    }

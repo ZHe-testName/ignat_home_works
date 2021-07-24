@@ -10,11 +10,27 @@ type AffairPropsType = {
 }
 
 function Affair(props: AffairPropsType) {
-    const deleteCallback = () => {props.deleteAffairCallback(props.affair._id)}// need to fix
+    const deleteCallback = () => {props.deleteAffairCallback(props.affair._id)};
+    
+    let textColor;
+
+    switch(props.affair.priority){
+        case 'high':
+            textColor = 'rgb(43, 167, 167)';
+            break;
+        case 'middle':
+            textColor = 'yellowgreen';
+            break;
+        case 'low':
+            textColor = 'rgb(84, 84, 204)';
+            break;
+    };
 
     return (
-        <div className={classes.affairField}>
-            // show some text
+        <div 
+            className={classes.affairField}
+            style={{color: textColor}}>
+            show some text
 
             <button
                 className={classes.deleteButton} 

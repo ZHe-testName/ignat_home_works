@@ -1,7 +1,12 @@
 .checkbox {
-
+    width: 15px;
+    height: 15px;
+    margin: 10px;
 }
 
 .spanClassName {
-
+    border-radius: 2px;
+    border: 1px dashed gold;
+    font-size: large;
+    color: rgb(143, 121, 0);
 }

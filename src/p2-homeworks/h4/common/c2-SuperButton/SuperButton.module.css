@@ -1,5 +1,9 @@
-.default {
+button {
+    margin-top: 10px;
+}
 
+.default {
+    background-color: chartreuse;
 }
 
 .red {

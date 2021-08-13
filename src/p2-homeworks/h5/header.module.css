@@ -1,0 +1,40 @@
+.header {
+    background-color: rgba(53, 233, 53, 0.349);
+    height: 70px;
+}
+
+nav {
+    position: absolute;
+    transform: translateX(-275px);
+    transition: transform;
+    transition-duration: 1s;
+    transition-timing-function: ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+nav:hover {
+    transform: translateX(0px);
+    transition: transform;
+    transition-duration: 1s;
+    transition-timing-function: ease-in;
+}
+    .arrow {
+        width: 25px;
+        height: 25px;
+        transform: rotateZ(45deg);
+        border-top: 5px solid black;
+        border-right: 5px solid black;
+    }
+
+    nav > a{
+        margin: 20px;
+        text-decoration: none;
+        color: blanchedalmond;
+    }
+
+    nav > a:hover{
+        cursor: pointer;
+        text-shadow: 0px 0px 10px white;
+    }

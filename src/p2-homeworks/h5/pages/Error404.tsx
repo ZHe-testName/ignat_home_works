@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
+
+import classes from './error.module.css';
 
 function Error404() {
     return (
-        <div>
+        <div className={classes.errorBlock}>
             <div>404</div>
             <div>Page not found!</div>
             <div>—ฅ/ᐠ.̫ .ᐟ\ฅ—</div>

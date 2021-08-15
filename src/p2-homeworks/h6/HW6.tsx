@@ -3,18 +3,23 @@ import SuperEditableSpan from './common/c4-SuperEditableSpan/SuperEditableSpan'
 import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
 import {restoreState, saveState} from './localStorage/localStorage'
 
+import classes from './hw6.module.css';
+
 function HW6() {
+    const editableSpanKey = 'editable-span-value';
     const [value, setValue] = useState<string>('')
 
     const save = () => {
-        saveState<string>('editable-span-value', value)
+        saveState<string>(editableSpanKey, value)
     }
     const restore = () => {
-        // setValue()
+        const value = restoreState<string>(editableSpanKey, '');
+
+        setValue(value)
     }
 
     return (
-        <div>
+        <div className={classes.hw6Class}>
             <hr/>
             homeworks 6
 
@@ -25,6 +30,9 @@ function HW6() {
                     onChangeText={setValue}
                     spanProps={{children: value ? undefined : 'enter text...'}}
                 />
+
+                <div
+                    className={classes.pencil}></div>
             </div>
             <SuperButton onClick={save}>save</SuperButton>
             <SuperButton onClick={restore}>restore</SuperButton>

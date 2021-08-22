@@ -1,6 +1,11 @@
 button {
     margin-top: 10px;
+    cursor: pointer;
 }
+
+ button:hover {
+     transform: scale(1.19);
+ }
 
 .default {
     background-color: chartreuse;

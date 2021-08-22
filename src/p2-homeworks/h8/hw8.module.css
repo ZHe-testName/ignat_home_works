@@ -1,0 +1,21 @@
+.main {
+    margin-left: 10px;
+}
+
+    .userRow {
+        display: flex;
+        width: 220px;
+        color: white;
+        margin-bottom: 2px;
+        padding: 5px;
+        border-bottom: 1px solid rgb(153, 153, 153);
+        border-radius: 10px;
+        background-color: rgb(56, 26, 56);
+        justify-content: space-between;
+    }
+
+    .buttonsBlok {
+        display: flex;
+        width: 230px;
+        justify-content: space-between;
+    }

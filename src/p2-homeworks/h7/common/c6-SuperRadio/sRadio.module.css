@@ -1,0 +1,13 @@
+.radio {
+    background-color: var(--bg_transparent_color);
+}
+
+ .radio > label{
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    font-size: 20px;
+    font-family: 'Indie Flower';
+    background-color: transparent;
+    color: rgb(0, 0, 0);
+ }

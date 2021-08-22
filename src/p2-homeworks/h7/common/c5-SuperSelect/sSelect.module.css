@@ -1,0 +1,9 @@
+.select {
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background-color: rgb(230, 211, 182);
+    font-size: 20px;
+    font-family: 'Indie Flower';
+    min-width: 130px;
+}

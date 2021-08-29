@@ -1,0 +1,37 @@
+.clockWrap {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--bg_transparent_color);
+    font-size: 43px;
+}
+
+    .date {
+        position: absolute;
+        top: 15px;
+        padding: 10px;
+        background-color: rgba(236, 229, 167, 0.74);
+        border-radius: 10px;
+        text-shadow: 0px 3px 2px black;
+    }
+
+    .clock {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .clock > div:first-of-type {
+            background-color: #ff69b4c4;
+            border-radius: 10px;
+            padding: 10px;
+            border: 3px solid wheat;
+            color: white;
+            cursor: cell;
+        }
+
+    .clockWrap button {
+        margin: 10px;
+    }

@@ -1,0 +1,11 @@
+.superRange{
+    font-size: 60px;
+    color: 'red',
+}
+
+.values{
+    display: 'block';
+    margin-left: 15px;
+    width: 80px;
+    float: left;
+}

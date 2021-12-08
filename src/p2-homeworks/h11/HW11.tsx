@@ -3,12 +3,18 @@ import SuperRange from './common/c7-SuperRange/SuperRange'
 import SuperDoubleRange from './common/c8-SuperDoubleRange/SuperDoubleRange'
 import c from './hw11.module.css';
 
+type DoubleRangeValuesType = [number, number];
+
 function HW11() {
     const [value1, setValue1] = useState(20)
-    const [value2, setValue2] = useState(100)
+    const [valueForDouble, setValueForDouble] = useState<DoubleRangeValuesType>([20, 40]);
 
     function onChangeRange (range: number){
         setValue1(range);
+    };
+
+    function onChangeDoubleRange (value: DoubleRangeValuesType){
+        setValueForDouble(value);
     };
 
     return (
@@ -26,12 +32,20 @@ function HW11() {
                 />
             </div>
 
-            <div>
-                <span>{value1}</span>
+            <div className={c.doubleSuperRange}>
+                <div>
+                    <span className={c.values}>{valueForDouble[0]}</span>
+                    <span className={c.values}>{valueForDouble[1]}</span>
+                </div>
+
                 <SuperDoubleRange
                     // сделать так чтоб value1 и value2 изменялось
+                    onChangeRange={onChangeDoubleRange}
+                    defaultValue={valueForDouble}
+                    value={valueForDouble}
+                    max={300}
                 />
-                <span>{value2}</span>
+                
             </div>
 
             <hr/>

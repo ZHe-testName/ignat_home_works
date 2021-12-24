@@ -9,6 +9,7 @@ const themes = ['dark', 'red', 'some'];
 
 function HW12() {
     const theme = useSelector<AppStoreType, string>(state => state.theme.theme); // useSelector
+    console.log(theme);
 
     const dispatch = useDispatch();
     // useDispatch, onChangeCallback

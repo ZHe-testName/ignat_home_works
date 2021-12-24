@@ -1,0 +1,27 @@
+.formWrap{
+    position: relative;
+    height: 120px;
+    width: 180px;
+    margin: 0px auto;
+}
+
+.formWrap > form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    margin: 20px 0px;
+    padding: 10px;
+    background-color: rgba(175, 175, 175, 0.411);
+}
+
+.formWrap > form > label{
+    cursor: pointer;
+}
+
+.formWrap > .popup{
+    position: absolute;
+    top: 40px;
+    left: 30px;
+    background-color: bisque;
+}

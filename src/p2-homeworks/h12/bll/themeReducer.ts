@@ -1,14 +1,37 @@
-const initState = {
+export type ThemeStringType = 'dark' | 'red' | 'some';
 
+enum ThemeActionsCreratorType {
+    CHANGE_THEME, 
 };
 
-export const themeReducer = (state = initState, action: any): any => { // fix any
+type ThemeStateType = {
+    theme: ThemeStringType,
+};
+
+const initState: ThemeStateType = {
+    theme: "some",
+};
+
+type ActionsReturnType = ReturnType<typeof changeThemeAC>;
+
+type ChangeThemeActionType = {
+    type: ThemeActionsCreratorType.CHANGE_THEME,
+    newTheme: ThemeStringType,
+};
+
+export const themeReducer = (state: ThemeStateType = initState, action: ActionsReturnType): ThemeStateType => { // fix any
     switch (action.type) {
-        case "": {
-            return state;
+        case ThemeActionsCreratorType.CHANGE_THEME: {
+            return {
+                ...state,
+                theme: action.newTheme,
+            };
         }
+
         default: return state;
     }
 };
 
-export const changeThemeC = (): any => {}; // fix any
+export const changeThemeAC = (newTheme: ThemeStringType): ChangeThemeActionType => {
+    return {type: ThemeActionsCreratorType.CHANGE_THEME, newTheme};
+}; // fix any

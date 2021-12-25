@@ -14,7 +14,6 @@ function HW12() {
     // useDispatch, onChangeCallback
 
     const onChangeCallback = (val: ThemeStringType) => {
-        console.log(val);
         dispatch(changeThemeAC(val));
     };
 

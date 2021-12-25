@@ -1,4 +1,4 @@
-import { requestReducer } from './../../h13/bll/requestReducer';
+import { requestFormReducer } from './../../h13/bll/requestReducer';
 import thunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
 import { combineReducers } from 'redux';
@@ -8,7 +8,7 @@ import { loadingReducer } from './loadingReducer';
 const reducers = combineReducers({
     loading: loadingReducer,
     theme: themeReducer,
-    request: requestReducer,
+    request: requestFormReducer,
 })
 
 const store = createStore(reducers, applyMiddleware(thunk));

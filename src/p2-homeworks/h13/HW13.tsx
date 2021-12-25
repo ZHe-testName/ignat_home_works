@@ -5,7 +5,7 @@ import { sendFormTC, switchIsShureAC } from './bll/requestReducer';
 import c from './HW13.module.css';
 
 const Request = () => {
-    const isSuccess = useSelector<AppStoreType, boolean>(state => state.request.form.success);
+    const isSuccess = useSelector<AppStoreType, boolean>(state => state.request.success);
     const msg = useSelector<AppStoreType, string>(state => state.request.errorMsg);
     const info = useSelector<AppStoreType, string>(state => state.request.errorInfo);
 

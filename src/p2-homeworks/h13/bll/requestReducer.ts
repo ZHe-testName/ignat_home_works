@@ -1,93 +1,90 @@
 import { requestAPI } from './../dal/pequestAPI';
 import { Dispatch } from "redux";
 
-enum FormActionsCreratorType {
-    CHANGE_IS_SHURE, 
-    SET_ERROR_MSG,
-    SET_ERROR_INFO,
-};
+const SWTCH_IS_SHURE = 'SWTCH_IS_SHURE', 
+    SET_ERROR_MSG = 'SET_ERROR_MSG',
+    SET_ERROR_INFO = 'SET_ERROR_INFO';
 
 export type FormType = {
     success: boolean,
 };
 
 type FormStateType = {
-    form: FormType,
+    form?: FormType,
+    success: boolean,
     errorMsg: string,
     errorInfo: string,
 };
 
 const initState: FormStateType = {
-    form: {
-        success: false,
-    },
+    // form: {
+    //     success: false,
+    // },
+
+    success: false,
 
     errorMsg: '',
     errorInfo: '',
 };
 
 type ActionsReturnType = ReturnType<typeof switchIsShureAC>
-                        | ReturnType<typeof setErrorMsgAC>
-                        | ReturnType<typeof setErrorInfoAC>;
+                        & ReturnType<typeof setErrorMsgAC>
+                        & ReturnType<typeof setErrorInfoAC>;
 
 type SendFormActionType = {
-    type: FormActionsCreratorType.CHANGE_IS_SHURE,
+    type: string,
     isShure: boolean,
 };
 
 type SetErrorMsgActionType = {
-    type: FormActionsCreratorType.SET_ERROR_MSG,
+    type: string,
     msg: string,
 };
 
 type SetErrorInfoActionType = {
-    type: FormActionsCreratorType.SET_ERROR_INFO,
+    type: string,
     info: string,
 };
 
-export const requestReducer = (state: FormStateType = initState, action: ActionsReturnType): FormStateType => {
-    switch (action.type) {
-        case FormActionsCreratorType.CHANGE_IS_SHURE: {
+export const requestFormReducer = (state: FormStateType = initState, action: ActionsReturnType): FormStateType => {
+    switch (action.type){
+        case SWTCH_IS_SHURE: {
             return {
-                    ...state,
-                    form: {
-                        ...state.form,
-                        success: action.isShure,
-                    },
-                    errorMsg: '',
-                    errorInfo: '',
-                };
+                ...state,
+                success: action.isShure,
+            };
         }
 
-        case FormActionsCreratorType.SET_ERROR_MSG: {
+        case SET_ERROR_MSG: {
             return {
-                    ...state,
-                    errorMsg: action.msg,
-                };
+                ...state,
+                errorMsg: action.msg,
+            };
         }
 
-        case FormActionsCreratorType.SET_ERROR_INFO: {
+        case SET_ERROR_INFO: {
             return {
-                    ...state,
-                    errorInfo: action.info,
-                };
+                ...state,
+                errorInfo: action.info,
+            };
         }
 
-
-        default: return state;
-    }
+        default: {
+            return state;
+        }
+    };
 };
 
 export const switchIsShureAC = (isShure: boolean): SendFormActionType => {
-    return {type: FormActionsCreratorType.CHANGE_IS_SHURE, isShure};
+    return {type: SWTCH_IS_SHURE, isShure} as const;
 }; 
 
 export const setErrorMsgAC = (msg: string): SetErrorMsgActionType => {
-    return {type: FormActionsCreratorType.SET_ERROR_MSG, msg};
+    return {type: SET_ERROR_MSG, msg} as const;
 }; 
 
 export const setErrorInfoAC = (info: string): SetErrorInfoActionType => {
-    return {type: FormActionsCreratorType.SET_ERROR_INFO, info};
+    return {type: SET_ERROR_INFO, info};
 }; 
 
 export const sendFormTC = (value: boolean) => {

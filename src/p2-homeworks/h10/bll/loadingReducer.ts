@@ -13,7 +13,7 @@ const initState: StateType = {
     isLoading: false,
 }
 
-export const loadingReducer = (state: StateType = initState, action: ActionType): StateType => { // fix any
+export const loadingReducer = (state: StateType = initState, action: ActionType): StateType => { 
     switch (action.type) {
         case SWITC_IS_LOADING: {
             return {
@@ -21,7 +21,10 @@ export const loadingReducer = (state: StateType = initState, action: ActionType)
                 isLoading: action.isLoading,
             }
         }
-        default: return state
+
+        default: {
+            return state;
+        }
     }
 }
 

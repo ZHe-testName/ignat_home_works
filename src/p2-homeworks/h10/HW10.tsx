@@ -18,7 +18,7 @@ function HW10() {
         // dispatch
         // setTimeout
     };
-console.log('l');
+    
     return (
         <div>
             <hr/>

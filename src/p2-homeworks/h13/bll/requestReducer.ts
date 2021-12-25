@@ -4,6 +4,7 @@ import { Dispatch } from "redux";
 enum FormActionsCreratorType {
     CHANGE_IS_SHURE, 
     SET_ERROR_MSG,
+    SET_ERROR_INFO,
 };
 
 export type FormType = {
@@ -13,6 +14,7 @@ export type FormType = {
 type FormStateType = {
     form: FormType,
     errorMsg: string,
+    errorInfo: string,
 };
 
 const initState: FormStateType = {
@@ -21,10 +23,12 @@ const initState: FormStateType = {
     },
 
     errorMsg: '',
+    errorInfo: '',
 };
 
 type ActionsReturnType = ReturnType<typeof switchIsShureAC>
-                        | ReturnType<typeof setErrorMsgAC>;
+                        | ReturnType<typeof setErrorMsgAC>
+                        | ReturnType<typeof setErrorInfoAC>;
 
 type SendFormActionType = {
     type: FormActionsCreratorType.CHANGE_IS_SHURE,
@@ -36,6 +40,11 @@ type SetErrorMsgActionType = {
     msg: string,
 };
 
+type SetErrorInfoActionType = {
+    type: FormActionsCreratorType.SET_ERROR_INFO,
+    info: string,
+};
+
 export const requestReducer = (state: FormStateType = initState, action: ActionsReturnType): FormStateType => {
     switch (action.type) {
         case FormActionsCreratorType.CHANGE_IS_SHURE: {
@@ -45,6 +54,8 @@ export const requestReducer = (state: FormStateType = initState, action: Actions
                         ...state.form,
                         success: action.isShure,
                     },
+                    errorMsg: '',
+                    errorInfo: '',
                 };
         }
 
@@ -54,6 +65,14 @@ export const requestReducer = (state: FormStateType = initState, action: Actions
                     errorMsg: action.msg,
                 };
         }
+
+        case FormActionsCreratorType.SET_ERROR_INFO: {
+            return {
+                    ...state,
+                    errorInfo: action.info,
+                };
+        }
+
 
         default: return state;
     }
@@ -67,6 +86,10 @@ export const setErrorMsgAC = (msg: string): SetErrorMsgActionType => {
     return {type: FormActionsCreratorType.SET_ERROR_MSG, msg};
 }; 
 
+export const setErrorInfoAC = (info: string): SetErrorInfoActionType => {
+    return {type: FormActionsCreratorType.SET_ERROR_INFO, info};
+}; 
+
 export const sendFormTC = (value: boolean) => {
     return (dispatch: Dispatch) => {
         const form: FormType = {
@@ -76,9 +99,13 @@ export const sendFormTC = (value: boolean) => {
         requestAPI.sendForm(form)
                     .then(data => {
                         dispatch(setErrorMsgAC(data.errorText));
+
+                        dispatch(setErrorInfoAC(data.info));
                     })
                     .catch(err => {
-                        dispatch(setErrorMsgAC(err.response.statusText));
+                        dispatch(setErrorMsgAC(err.response.data.errorText));
+
+                        dispatch(setErrorInfoAC(err.response.data.info));
                     });
     };
 };

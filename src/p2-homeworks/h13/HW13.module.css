@@ -1,6 +1,4 @@
 .formWrap{
-    position: relative;
-    height: 120px;
     width: 180px;
     margin: 0px auto;
 }
@@ -17,11 +15,29 @@
 
 .formWrap > form > label{
     cursor: pointer;
+    margin-bottom: 15px;
 }
 
 .formWrap > .popup{
-    position: absolute;
-    top: 40px;
-    left: 30px;
+    position: relative;
     background-color: bisque;
+    cursor: pointer;
+}
+
+.formWrap > .popup:hover > .info{
+    transition: all;
+    transition-duration: 0.4s;
+    opacity: 1;
+}
+
+.info{
+    transition: all;
+    transition-duration: 0.4s;
+    opacity: 0;
+    width: 100%;
+    padding: 5px;
+    color: cornsilk;
+    position: absolute;
+    left: calc(100% + 30px);
+    background-color: rgba(75, 143, 7, 0.486);
 }

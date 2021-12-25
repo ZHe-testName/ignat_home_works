@@ -1,4 +1,4 @@
-import React, { FormEvent } from 'react';
+import React, { ChangeEvent, FormEvent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppStoreType } from '../h10/bll/store';
 import { sendFormTC, switchIsShureAC } from './bll/requestReducer';
@@ -7,11 +7,12 @@ import c from './HW13.module.css';
 const Request = () => {
     const isSuccess = useSelector<AppStoreType, boolean>(state => state.request.form.success);
     const msg = useSelector<AppStoreType, string>(state => state.request.errorMsg);
+    const info = useSelector<AppStoreType, string>(state => state.request.errorInfo);
 
     const dispatch = useDispatch();
 
-    const onChangeHandler = () => {
-        dispatch(switchIsShureAC(!isSuccess));
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        dispatch(switchIsShureAC(e.currentTarget.checked));
     };
 
     const onSubmitHandle = (e: FormEvent<HTMLFormElement>) => {
@@ -22,11 +23,25 @@ const Request = () => {
 
     return (
         <div className={c.formWrap}>
+             {
+                msg
+                    &&
+                    <div className={c.popup}>
+                        <span>
+                            {msg}
+                        </span>
+
+                        <span className={c.info}>
+                            {info}
+                        </span>
+                    </div>
+            }
+
             <form
                 onSubmit={e => onSubmitHandle(e)}>
                 <label>
                     <input 
-                        onChange={onChangeHandler}
+                        onChange={e => onChangeHandler(e)}
                         type="checkbox"
                         name="checkshure"
                         checked={isSuccess} />
@@ -35,16 +50,6 @@ const Request = () => {
 
                 <button>Send</button>
             </form>
-
-            {
-                msg
-                    &&
-                    <div className={c.popup}>
-                        <span>
-                            {msg}
-                        </span>
-                    </div>
-            }
         </div>
     );
 };
